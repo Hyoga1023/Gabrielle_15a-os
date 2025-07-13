@@ -1,0 +1,242 @@
+:root {
+  --primario-color: #f0f0f0;
+  --secundario-color: #000000;
+  --terciario-color: #a10d1e;
+  --cuaternario-color: #d4af37;
+  --quinario-color: #d9a3a3;
+  --shadow-color: rgba(201, 193, 193, 0.8);
+}
+
+body {
+  font-family: "Princess Sofia", cursive;
+  color: var(--secundario-color);
+  min-height: 100vh;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("img/Playa.jpeg") no-repeat center/cover;
+  background-attachment: local;
+  z-index: -1;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;  
+  border-radius: 10px;
+  background-color: rgba(240, 240, 240, 0.4);
+  height: 300px;
+}
+.encabezado {
+  font-family: "Princess Sofia", cursive;
+  padding: 10px 5px;
+}
+.encabezado p{
+  font-size: 1.3rem;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  height: auto;
+}
+main h1 {
+  padding: 0 10px;
+  font-size: 2.3rem;
+  background: linear-gradient(270deg, #ffe600, #ff0033, #5718aa, #ffe600);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorTransition 2s ease infinite;
+}
+
+@keyframes colorTransition {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.global_content {
+  display: flex;
+  flex-direction: column;
+  background: rgba(245, 211, 19, 0.3); 
+  backdrop-filter: blur(1px);
+  margin: 40px auto 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+}
+.global_content h2 {
+  font-size: 2rem;
+  color: var(--secundario-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.global_content p{
+  font-size: 1.5rem;
+  color: var(--secundario-color);
+  margin: 10px 0;
+  padding: 0 7px;
+}
+.contenedor_mapa{
+  display: flex;
+  padding: 0 7px;
+  margin-top: 10px;
+  color: var(--primario-color);
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  font-family: 'Princess Sofia', cursive;
+}
+/* Mapa más grande */
+#map {
+  height: 600px;
+  width: 100%; 
+  max-width: none;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  margin: 20px 0px;
+  border: 2px solid var(--secundario-color);
+}
+
+
+/* Estilo para el icono personalizado del mapa */
+.custom-div-icon {
+  background: transparent !important;
+  border: none !important;
+  text-align: center;
+  font-size: 25px;
+}
+
+/* Personalización del popup del mapa */
+.leaflet-popup-content-wrapper {
+  background-color: var(--primario-color);
+  border-radius: 10px;
+  box-shadow: 0 3px 14px var(--shadow-color);
+}
+
+.leaflet-popup-content {
+  font-family: "Princess Sofia", cursive;
+  color: var(--secundario-color);
+}
+.video-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 90vw;
+  border-radius: 10px;
+  width: 100%;
+  margin: 20px auto;
+  background-color: rgba(240, 240, 240, 0.4);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 210px; 
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  border: none;
+}
+
+.video-container h2 {
+  font-size: 1.5rem;
+  color: var(--secundario-color);
+  margin-bottom: 15px;
+}
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+.botón_avanzar {
+  bottom: 50%;
+  right: 50%;
+  z-index: 3;
+}
+
+.btn-siguiente {
+  padding: 15px 20px;
+  font-family: "Princess Sofia", cursive;
+  font-size: 1.5rem;
+  background-color: var(--terciario-color);
+  color: #fff;
+  border: solid 1px var(--secundario-color);
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-siguiente:hover {
+  background-color: #7E191B;
+}
+
+.btn-siguiente:active {
+  transform: translateY(1px);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-siguiente:focus {
+  outline: 2px solid #7E191B;
+  outline-offset: 2px;
+}
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+  body {
+    padding: 5px 0;
+  }
+  
+  header {
+    width: 95%;
+    height: auto;
+    min-height: 110px;
+    padding: 0 10px 10px;
+    margin: 10px auto;
+  }
+  
+  .encabezado {
+    font-size: 1rem;
+  }
+  
+  .global_content {
+    margin: 20px auto;
+    width: 100vw;
+    padding: 2px;
+  }
+  
+  .global_content h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  
+  #map {
+    height: 350px;
+    width: 100%; 
+    margin: 15px 0;
+  }
+}

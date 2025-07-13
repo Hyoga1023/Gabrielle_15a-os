@@ -1,0 +1,44 @@
+:root {
+  --primario-color: #f0f0f0;
+  --secundario-color: #000000;
+  --terciario-color: #a10d1e;
+  --cuaternario-color: #d4af37;
+  --quinario-color: #d9a3a3;
+  --shadow-color: rgba(201, 193, 193, 0.8);
+}
+
+body {
+  font-family: "Princess Sofia", cursive;
+  color: var(--secundario-color);
+  min-height: 100vh;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  transition: background-color 0.8s ease-in-out;
+}
+
+/* Clases para los colores de fondo */
+.bg-amarillo {
+  background-color: #ffcd00 !important;
+}
+
+.bg-azul {
+  background-color: #003893 !important;
+}
+
+.bg-rojo {
+  background-color: #ce1126 !important;
+}
+
+.bg-violeta {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7) !important;
+}
+
+.btn-texto-negro {
+  color: #000000 !important;
+}
+
+.btn-texto-blanco {
+  color: #ffffff !important;
+}

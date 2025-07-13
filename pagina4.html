@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style4.css" />
+    <link rel="icon" href="./img/Mariposa.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Rocker&family=Princess+Sofia&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <title>Proyecto Secreto</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <header>
+      <div class="encabezado">
+        <h2>Tu Familia te ha preparado esta sorpresa</h2>
+        <p></p>
+        <p>
+          Esperamos que lo disfrutes mucho, porque es con mucho amor!
+        </p>
+      </div>
+    </header>
+    <main>
+      <div class="contenedor_mapa">
+        <h1>Playa, Brisa y Mar!</h1>
+        <div id="map"></div>
+      </div>
+      <div class="global_content">
+        <h2>¡Gabrielle Luciana!</h2>
+        <p>
+          El hotel Decameron Galeón Santa Marta te espera con los brazos
+          abiertos durante 3 días y 2 noches, al cual llegarás en un vuelo de 1
+          hora y 35 minutos desde Cali, Colombia.
+        </p>
+        <p>¡Disfruta de tu estancia!</p>
+      </div>
+      <!-- Sección del video -->
+      <div class="video-container">
+        <h2>Te presentamos el lugar de tu estadía</h2>
+        <div class="video-responsive">
+          <iframe
+            src="https://www.youtube.com/embed/-wpjhG2k6rQ?autoplay=1&mute=1&loop=1&playlist=-wpjhG2k6rQ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="botón_avanzar">
+        <a href="index.html" class="btn-siguiente">Feliz Cumpleaños</a>
+      </div>
+    </footer>
+    <audio id="bgMusic" loop>
+      <source
+        src="./mp3/Don Omar - Hasta Que Salga El Sol (Lyric Video).mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <script src="audio_pagina4.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        try {
+          // Configurar los iconos de Leaflet para usar las versiones CDN
+          delete L.Icon.Default.prototype._getIconUrl;
+          L.Icon.Default.mergeOptions({
+            iconRetinaUrl:
+              "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
+            iconUrl:
+              "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
+            shadowUrl:
+              "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
+          });
+
+          const lat = 11.092519412453044;
+          const lon = -74.21869662138386;
+          const zoomLevel = 15;
+
+          // Inicializar el mapa
+          const map = L.map("map").setView([lat, lon], zoomLevel);
+
+          // Añadir capa de tiles
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }).addTo(map);
+
+          // Crear un marcador
+          const marker = L.marker([lat, lon]).addTo(map);
+
+          // Añadir un popup al marcador con tamaño corregido
+          marker
+            .bindPopup(
+              `
+  <div style="text-align: center; font-family: Arial, Helvetica, sans-serif;">
+    <b>¡Hola, Gabrielle Luciana!</b><br>
+    <span style="color: #000000;">💕 Bienvenida al Decameron Galeón Santa Marta 💕</span><br>
+    <small>¡Que disfrutes mucho tu viaje!</small>
+  </div>
+  `,
+              {
+                maxWidth: 200, 
+                minWidth: 180, 
+                className: "custom-popup", 
+              }
+            )
+            .openPopup();
+        } catch (error) {
+          console.error("Error al inicializar el mapa:", error);
+        }
+      });
+    </script>
+  </body>
+</html>

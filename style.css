@@ -1,0 +1,217 @@
+/* style.css - Solución mínima que NO interfiere con Bootstrap */
+:root {
+  --primario-color: #f0f0f0;
+  --secundario-color: #000000;
+  --terciario-color: #A10D1E;
+  --cuaternario-color: #D4AF37;
+}
+
+body {
+  font-family: "Princess Sofia", cursive;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('img/Fondo_Negro\ _Rosas.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  z-index: -1;
+}
+
+#carouselExampleIndicators {
+  position: relative;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  min-height: 400px; 
+}
+
+.carousel-item {
+  min-height: 400px; /
+  text-align: center; 
+  padding: 40px 20px; 
+}
+
+.carousel-item h1,
+.carousel-item p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  top: 90%;
+}
+
+.carousel-indicators {
+  display: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.pulsing {
+  animation: pulse 1s infinite;
+}
+
+.arrow-down {
+  position: fixed;
+  color: var(--primario-color);
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.arrow-down.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+main {
+  z-index: 1;
+  flex: 1;
+  padding: 20px;
+}
+main .inicio_fotos{
+  font-family: "Princess Sofia", cursive;
+  color: var(--primario-color);
+}
+section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  z-index: 1;
+  font-family: "Princess Sofia", cursive;
+  font-size: 3em;
+  font-weight: 400;
+  text-align: center;
+}
+
+p {
+  font-size: 1.5rem;
+  color: var(--primario-color);
+}
+
+.scroll {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.botón_avanzar {
+  bottom: 30%;
+  right: 30%;
+  z-index: 3;
+}
+
+.btn-siguiente {
+  padding: 15px 20px;
+  font-family: "Princess Sofia", cursive;
+  font-size: 1.5rem;
+  background-color: var(--terciario-color);
+  color: #fff;
+  border: solid 1px var(--secundario-color);
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-siguiente:hover {
+  background-color: #7E191B;
+}
+
+.btn-siguiente:active {
+  transform: translateY(1px);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-siguiente:focus {
+  outline: 2px solid #7E191B;
+  outline-offset: 2px;
+}
+
+header {
+  z-index: 1;
+  background: transparent;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  z-index: 1;
+  background: transparent;
+  padding: 10px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .botón_avanzar {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .btn-siguiente {
+    font-size: 1.3rem;
+    padding: 13px 20px;
+  }
+  
+  .carousel-item {
+    min-height: 350px;
+    padding: 30px 15px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  p {
+    font-size: 1.5rem;
+  }
+}
