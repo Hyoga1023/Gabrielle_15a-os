@@ -32,16 +32,39 @@ header {
   flex-direction: column;
   align-items: center;
   width: 100%;  
+  padding: 15px 10px; /* Aumenté el padding */
   border-radius: 10px;
   background-color: rgba(240, 240, 240, 0.4);
-  height: 300px;
+  
+  /* 🎯 SOLUCIÓN: Quitar height fijo y usar min-height */
+  min-height: 120px; /* Altura mínima razonable */
+  height: auto; /* Que se ajuste al contenido */
 }
+
 .encabezado {
   font-family: "Princess Sofia", cursive;
-  padding: 10px 5px;
+  padding: 10px 15px; /* Aumenté el padding lateral */
+  text-align: center;
+  
+  /* 🎯 SOLUCIÓN: Quitar height fijo completamente */
+  height: auto; /* Que se ajuste al contenido */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 100%; /* No se desborde */
+  box-sizing: border-box; /* Include padding en el cálculo del ancho */
 }
-.encabezado p{
+
+.encabezado h2 {
+  font-size: 1.8rem; /* Tamaño más controlado */
+  margin: 0 0 10px 0; /* Margen solo abajo */
+  line-height: 1.2; /* Mejor espaciado entre líneas */
+  word-wrap: break-word; /* Rompe palabras largas si es necesario */
+}
+
+.encabezado p {
   font-size: 1.3rem;
+  margin: 10px 0;
+  line-height: 1.4; /* Mejor legibilidad */
+  word-wrap: break-word; /* Rompe palabras largas si es necesario */
 }
 
 main{
@@ -107,7 +130,7 @@ main h1 {
 }
 /* Mapa más grande */
 #map {
-  height: 600px;
+  height: 430px;
   width: 100%; 
   max-width: none;
   font-family: Arial, Helvetica, sans-serif !important;
@@ -213,14 +236,20 @@ footer{
   
   header {
     width: 95%;
-    height: auto;
-    min-height: 110px;
-    padding: 0 10px 10px;
+    min-height: 100px; 
+    padding: 10px;
     margin: 10px auto;
   }
   
   .encabezado {
-    font-size: 1rem;
+    padding: 8px 12px;
+  }
+  
+  .encabezado h2 {
+    font-size: 1.5rem; 
+  
+  .encabezado p {
+    font-size: 1.1rem;
   }
   
   .global_content {
@@ -235,8 +264,23 @@ footer{
   }
   
   #map {
-    height: 350px;
+    height: 300px;
     width: 100%; 
     margin: 15px 0;
   }
+}
+
+@media (max-width: 480px) {
+  .encabezado {
+    padding: 3px 12px;
+  }
+  
+  .encabezado h2 {
+    font-size: 1.3rem; 
+  }
+  
+  .encabezado p {
+    font-size: 1.2rem;
+  }
+}
 }

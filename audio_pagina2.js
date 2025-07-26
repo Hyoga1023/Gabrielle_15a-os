@@ -1,7 +1,7 @@
 // audio.js
 document.addEventListener('DOMContentLoaded', function() {
     const audio = document.getElementById('bgMusic');
-    audio.volume = 0.1; // Ajusta el volumen (0.5 = 50%)
+    audio.volume = 0.1;
 
     // Intenta reproducir automáticamente
     const playAudio = () => {

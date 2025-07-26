@@ -7,6 +7,12 @@
   --shadow-color: rgba(201, 193, 193, 0.8);
 }
 
+/* Fix fundamental para prevenir desbordamiento */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Princess Sofia", cursive;
   color: var(--secundario-color);
@@ -41,6 +47,12 @@ header {
   margin-top: 30px;
 }
 
+/* Asegurar que las imágenes no desborden */
+header img, .encabezado img {
+  max-width: 100%;
+  height: auto;
+}
+
 .global_content {
   display: flex;
   flex-direction: column;
@@ -50,6 +62,10 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  
+  /* CLAVE: Limitar el ancho y centrar */
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .encabezado {
@@ -61,13 +77,19 @@ header {
   color: var(--primario-color);
   border-radius: 10px;
   border: 1px solid var(--quinario-color);
-  gap:7px;
+  gap: 7px;
   text-align: center;
   text-shadow: 4px 4px 10px var(--shadow-color);
+  
+  /* Prevenir desbordamiento del encabezado */
+  max-width: calc(100vw - 40px);
+  box-sizing: border-box;
 }
-.texto_encabezado{
+
+.texto_encabezado {
   margin: 10px 0 10px;
 }
+
 .card_videos {
   display: flex;
   flex-direction: column;
@@ -76,10 +98,15 @@ header {
   background-color: var(--shadow-color);
   border-radius: 10px;
   margin-top: 20px;
-  padding: 0 0 10px;
+  padding: 0 5px 10px;
   gap: 5px;
   position: relative;
   overflow: hidden;
+  
+  /* SOLUCIÓN PRINCIPAL: Controlar el ancho de las cards */
+  width: 100%;
+  max-width: min(400px, calc(100vw - 40px));
+  box-sizing: border-box;
 }
 
 .card_videos::before {
@@ -116,16 +143,27 @@ header {
   font-size: 1.2rem;
   color: var(--secundario-color);
   text-align: center;
+  padding: 0 10px;
   margin-top: 10px;
   border-radius: 10px;
 }
-footer{
+
+/* SOLUCIÓN CRÍTICA: Hacer iframes completamente responsivos */
+.card_videos iframe {
+  width: 100% !important;
+  max-width: 380px;
+  border: none;
+  border-radius: 8px;
+}
+
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
   padding-bottom: 15px;
 }
+
 .btn-siguiente {
   padding: 15px 20px;
   font-family: "Princess Sofia", cursive;
@@ -154,4 +192,30 @@ footer{
 .btn-siguiente:focus {
   outline: 2px solid #7E191B;
   outline-offset: 2px;
+}
+
+/* Media queries para ajustar en pantallas pequeñas */
+@media (max-width: 480px) {
+  .global_content {
+    padding: 5px;
+  }
+  
+  .card_videos {
+    max-width: calc(100vw - 20px);
+    padding: 0 3px 8px;
+  }
+  
+  .card_videos iframe {
+    height: 180px; 
+  }
+  
+  .encabezado {
+    font-size: 1.3rem;
+    max-width: calc(100vw - 20px);
+    padding: 8px;
+  }
+  
+  .texto_card {
+    font-size: 1.1rem;
+  }
 }
