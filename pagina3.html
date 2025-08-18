@@ -18,11 +18,33 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Gabrielle 15 Años</title>
   </head>
   <body>
-
     <script src="sweetAlert2.js"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
+    <script>
+      L2Dwidget.init({
+        model: {
+          jsonPath: "./models/wanko/wanko.model.json",
+        },
+        display: {
+          position: "center",
+          width: 300,
+          height: 400,
+          hOffset: 0,
+          vOffset: -100,
+        },
+        mobile: {
+          show: true,
+          scale: 0.5,
+        },
+        react: {
+          opacityDefault: 0.9,
+          opacityOnHover: 1,
+        },
+      });
+    </script>
+  </body>
 </html>

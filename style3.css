@@ -17,6 +17,14 @@ body {
   margin: 0;
   transition: background-color 0.8s ease-in-out;
 }
+  /* Forzar que el canvas se quede centrado */
+  canvas{
+    position: absolute !important;
+    left: 73% !important;
+    bottom: 0 !important;
+    transform: translateX(-50%);
+    z-index: 9999 ;
+  }
 
 /* Clases para los colores de fondo */
 .bg-amarillo {
