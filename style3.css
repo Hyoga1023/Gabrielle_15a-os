@@ -17,14 +17,24 @@ body {
   margin: 0;
   transition: background-color 0.8s ease-in-out;
 }
-  /* Forzar que el canvas se quede centrado */
-  canvas{
-    position: absolute !important;
-    left: 73% !important;
-    bottom: 0 !important;
-    transform: translateX(-50%);
-    z-index: 9999 ;
-  }
+#starCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+canvas.live2d-widget-canvas {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 65% !important;
+  transform: translateX(-50%) !important;
+  z-index: 10 !important;
+  pointer-events: auto;
+}
 
 /* Clases para los colores de fondo */
 .bg-amarillo {
