@@ -50,9 +50,7 @@
         <div class="card_videos">
           <div class="texto_card">
             <h1>Mensaje de la Abuela</h1>
-            <p>
-              Un video lleno de amor y buenos deseos para ti en este día
-            </p>
+            <p>Un video lleno de amor y buenos deseos para ti en este día</p>
           </div>
           <iframe
             src="https://player.vimeo.com/video/1104905831?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
@@ -105,5 +103,28 @@
       />
     </audio>
     <script src="audio_pagina2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
+    <script>
+      L2Dwidget.init({
+        model: {
+          jsonPath: "./models/izumi/izumi.model.json",
+        },
+          display: {
+          position: "right", // lado derecho
+          width: 300,
+          height: 400,
+          hOffset: -100, // desplazamiento horizontal
+          vOffset: -125, // desplazamiento vertical
+        },
+        mobile: {
+          show: true,
+          scale: 0.5,
+        },
+        react: {
+          opacityDefault: 0.9,
+          opacityOnHover: 1,
+        },
+      });
+    </script>
   </body>
 </html>
