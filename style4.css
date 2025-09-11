@@ -141,7 +141,13 @@ main h1 {
   border: 2px solid var(--secundario-color);
 }
 
-
+.itinerario{
+  color: var(--secundario-color);
+  margin: 0 5px;
+}
+.itinerario p{
+  font-size: 1.3rem;
+}
 /* Estilo para el icono personalizado del mapa */
 .custom-div-icon {
   background: transparent !important;
