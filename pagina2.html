@@ -35,11 +35,10 @@
         <div class="card_videos">
           <div class="texto_card">
             <h1>Mensaje de tu familia Materna</h1>
-            <p>
-              Un video lleno de amor y buenos deseos para ti en este día
-            </p>
+            <p>Un video lleno de amor y buenos deseos para ti en este día</p>
           </div>
           <iframe
+            id="vimeo1"
             src="https://player.vimeo.com/video/1121730253?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -53,6 +52,7 @@
             <p>Un video lleno de amor y buenos deseos para ti en este día</p>
           </div>
           <iframe
+            id="vimeo2"
             src="https://player.vimeo.com/video/1104905831?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -66,6 +66,7 @@
             <p>Un video lleno de amor y buenos deseos para ti en este día</p>
           </div>
           <iframe
+            id="vimeo3"
             src="https://player.vimeo.com/video/1104625086?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -79,6 +80,7 @@
             <p>Este es un video de tu gata que te ama ¡a pesar de todo!.</p>
           </div>
           <iframe
+            id="vimeo4"
             src="https://player.vimeo.com/video/1104625560?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -99,6 +101,7 @@
         type="audio/mpeg"
       />
     </audio>
+    <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="audio_pagina2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
     <script>
@@ -110,8 +113,8 @@
           position: "right",
           width: 300,
           height: 400,
-          hOffset: -95, // desplazamiento horizontal
-          vOffset: -125, // desplazamiento vertical
+          hOffset: -95,
+          vOffset: -125,
         },
         mobile: {
           show: true,
@@ -121,6 +124,18 @@
           opacityDefault: 0.9,
           opacityOnHover: 1,
         },
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const iframes = document.querySelectorAll('iframe[src*="player.vimeo.com"]');
+        iframes.forEach((iframe) => {
+          const player = new Vimeo.Player(iframe);
+          player.setVolume(1).then(() => {
+            console.log(`Volumen establecido al máximo para ${iframe.id}`);
+          }).catch((error) => {
+            console.error("Error al establecer el volumen:", error);
+          });
+        });
       });
     </script>
   </body>
